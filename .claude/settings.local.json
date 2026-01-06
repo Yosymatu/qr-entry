@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:win:*)",
+      "Bash(npm uninstall @types/sqlite3)"
+    ]
+  }
+}
