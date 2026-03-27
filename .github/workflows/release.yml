@@ -15,8 +15,7 @@ jobs:
       contents: "write"  # リリース作成に必要な権限
       pull-requests: "read"  # Pull Requestの本文の読み取り権限
 
-      steps:
-
+    steps:
       - name: Checkout Repository  # リポジトリのチェックアウト
         uses: actions/checkout@v4
       
