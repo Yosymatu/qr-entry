@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "qr-entry"
 version = "0.1.0"
@@ -9,4 +13,21 @@ dependencies = [
     "pillow>=12.1.1",
     "polars>=1.38.1",
     "pyinstaller>=6.18.0",
+    "pyinstaller-versionfile>=3.1.0",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+"project" = ["*.*", "**/*.*"]
+
+[tool.setuptools.dynamic]
+version = {file = "VERSION.txt"}
+
+[tool.pyinstaller-versionfile]
+original_filename = "QRGateApp.exe"
+product_name = "QRGateApp"
+translations = [
+    0x0411, 1200
 ]

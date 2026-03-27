@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: qr-entry
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.14
+Description-Content-Type: text/markdown
+Requires-Dist: customtkinter>=5.2.2
+Requires-Dist: pillow>=12.1.1
+Requires-Dist: polars>=1.38.1
+Requires-Dist: pyinstaller>=6.18.0
+Requires-Dist: pyinstaller-versionfile>=3.1.0
+
+# in progress...
