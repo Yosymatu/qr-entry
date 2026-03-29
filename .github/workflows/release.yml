@@ -1,11 +1,10 @@
 name: Build Windows Release
 
 on:
-  pull_request:
-    branches:
-      - "main"  # 監視するブランチ
-    types:
-      - "closed"  # プルリクエストが閉じられたときにトリガー
+  push:
+    tags:
+      - 'v*'  # 例: v1.0.0 などのタグがプッシュされたら自動実行
+  workflow_dispatch:  # GitHubのActionsタブから手動で実行できるボタンを表示
 
 jobs:
   build:
@@ -23,25 +22,15 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.14' # プロジェクトに合わせて変更してください
+        python-version: '3.14'
 
     - name: Install dependencies
       run: |
-        # pyproject.toml や uv.lock で管理している場合は uv sync を使用します
         uv sync 
-        
-        # ※もしファイルで管理しておらず手動でパッケージを入れている場合は、
-        # 上の uv sync を消して以下のコマンドのコメントアウトを外してください
-        # uv venv
-        # uv pip install pyinstaller customtkinter polars pillow pyserial
 
     - name: Build EXE with PyInstaller
       run: |
-        # 配布しやすいように今回は --onedir ではなく --onefile（単一ファイル化）に変更しています
         uv run pyinstaller --noconfirm --onefile --windowed --collect-all customtkinter --add-data "assets;assets" main_serial.py
-      
-      # 補足: もしリポジトリ内に空の data フォルダをコミットしている場合は、末尾に --add-data "data;data" を追加してください。
-      # アプリ側で自動生成する作りになっているため、基本は含めなくて大丈夫です。
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
