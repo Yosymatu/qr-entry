@@ -7,7 +7,6 @@ QR Gate Checker (CustomTkinter) - spec 2026/02
 - 直前と同一文字列が1秒以内に再入力→無視（判定なし）
 - ログはDBへ蓄積、CSV出力可
 - 入力モード：HID（キーボード）/ Serial（USB-COM; 複数ポート同時対応）
-uv run python -m nuitka --standalone --enable-plugin=tk-inter --windows-console-mode=disable --include-data-dir=assets=assets --include-data-dir=data=data --include-package=customtkinter -o QRGateChecker.exe main.py
 """
 from __future__ import annotations
 import os, sys
