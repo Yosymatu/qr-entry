@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: QRGateChecker-Windows
-        path: dist/main_serial.exe
+        path: dist/main.exe
 
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
